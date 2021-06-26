@@ -72,7 +72,6 @@ const FunctionalComponent = (props) => {
 
 const TinyComponent = (props) => {
     return (
-
         <div>
             <p>The current style is : {props.selectedStyle}</p>
         </div>
