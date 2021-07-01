@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
-const InfoCard = styled.div
-`
-display: inline - block;
-width: 50%;
-margin - bottom: 1em;
-text-align: center;
-color: #d9514e;`;
+// const InfoCard = styled.div`
+// display: inline - block;
+// width: 50%;
+// margin - bottom: 1em;
+// text-align: center;
+// color: #d9514e;`;
+
+let InfoCard;
 
 const InfoBox = (props) => {
 
@@ -16,28 +17,28 @@ const [infoCurrent, setInfoCurrent] = useState('');
 const [infoPayout, setInfoPayout] = useState('');
 
 useEffect(() => {
-const infoData = props.data;
-let payout = []
-for (let thing in infoData) {
-payout.push(infoData[thing])
+    const infoData = this.props.data;
+    let payout = []
+    for (let thing in infoData) {
+        payout.push(infoData[thing])
 }
-setPayout(payout);
-setInfoCurrent(payout[30]);
-setInfoPayout(payout[30] - payout[0])
+    setPayout(payout);
+    setInfoCurrent(payout[30]);
+    setInfoPayout(payout[30] - payout[0])
 }, [])
 
 return (
 <div>
-<InfoCard>
+    <InfoCard>
 <div>
-<h3>Current Price:</h3>
+    <h3>Current Price:</h3>
 </div>
 <div>
-<h5>{infoCurrent.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}
+    <h5>{infoCurrent.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}
 </h5>
 </div>
-</InfoCard>
-<InfoCard>
+    </InfoCard>
+    <InfoCard>
 <div>
 <h3>Change Since Last Month (USD):
 </h3>

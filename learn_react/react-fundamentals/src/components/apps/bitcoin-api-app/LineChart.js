@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-//import moment from 'moment';
-import Chart from 'chart.js';
+import Chart from 'chart.js/auto';
+import moment from "moment";
 
 const LineChart = (props) => {
     
@@ -14,9 +14,8 @@ const LineChart = (props) => {
         let payout = [];
     
         for (let item in unsortedData) {
-            //let bitCoinDates = moment(item).format('MM DD');
-            //change below to bitcoindates
-            dates.push(item);
+            let bitCoinDates = moment(item).format('MM DD');
+            dates.push(bitCoinDates);
             payout.push(unsortedData[item]);
         }
         console.log(dates, payout);
@@ -26,7 +25,7 @@ const LineChart = (props) => {
         
     useEffect(() => {
         
-        let chartContext = document.getElementById('mychart').getContext('2d');
+        let chartContext = document.getElementById('myChart').getContext('2d');
         
         let myChart = new Chart(chartContext, {
             type: 'line',
